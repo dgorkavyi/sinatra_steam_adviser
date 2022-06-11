@@ -25,4 +25,4 @@ game_data[:image_url] = game_info[appid.to_s]['data']['header_image']
 game_data[:name] = game_info[appid.to_s]['data']['name']
 game_data[:played_time] = game['playtime_forever']
 
-pp game_info[appid.to_s][:data]
+pp game_data
