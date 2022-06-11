@@ -1,6 +1,5 @@
 require 'steam-api'
 require 'pp'
-require 'active_support'
 
 # Defaults
 steam_web_api_key = '3495AA76D910EBC50BDD1A18174E75C4'
