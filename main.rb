@@ -19,11 +19,19 @@ owned_games = Steam::Player.owned_games steam_id
 
 # Get needed data
 game_data = { name: '', played_time: '', image_url: '' }
-game = owned_games['games'].to_a.sample
+game = owned_games['games'].sample
 appid = game['appid']
 game_info = Steam::Store.app_details appid
-game_data[:image_url] = game_info[appid.to_s]['data']['header_image']
+game_data[:image_url] = game_info[appid.to_s]['data']['header_image'] or ''
 game_data[:name] = game_info[appid.to_s]['data']['name']
-game_data[:played_time] = game['playtime_forever']
+unless game['playtime_forever'].eql?(0)
+  game_data[:played_time] = (game['playtime_forever'] / 60.0)
+                            .truncate(2)
+                            .to_s.split('.')
+                            .join(' hours ')
+                            .concat(' min')
+else
+  game_data[:played_time] = '0 hours 0 min'
+end
 
 pp game_data
