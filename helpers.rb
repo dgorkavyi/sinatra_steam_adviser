@@ -24,7 +24,7 @@ module SteamHelpers
     data = game_info[appid.to_s]['data']
 
     if data.nil?
-      gets_game_full owned_games
+      game_hash_data owned_games
     else
       {
         game_url: game_url(appid),

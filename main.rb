@@ -2,6 +2,8 @@
 
 require 'steam-api'
 require 'pp'
+require 'sinatra'
+require 'json'
 require_relative 'helpers'
 
 include SteamHelpers
@@ -16,3 +18,10 @@ owned_games = Steam::Player.owned_games steam_id
 
 # Get needed data
 pp game_hash_data owned_games
+
+# Sinatra
+
+# game_hash_data(owned_games).to_json
+get '/game' do
+  erb :index
+end
