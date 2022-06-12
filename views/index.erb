@@ -16,7 +16,8 @@
         <input type="submit" value="Click me!" class="submit_btn">
       </form>
     </div>
-    <% unless @error.nil& %>
+
+    <% unless @error.nil? %>
       <div class="error"><%= @error %></div>
     <% end %>
   </div>
