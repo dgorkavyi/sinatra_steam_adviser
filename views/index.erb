@@ -12,14 +12,13 @@
     <h1>Enter your steam ID: </h1>
     <div class="form_block">
       <form action="/suggest_game" method="get">
-        <input type="text" name="name" value="<%= params[:name] %>" class="name_input">
+        <input type="text" name="steam_id" value="<%= params[:steam_id] %>" class="name_input">
         <input type="submit" value="Click me!" class="submit_btn">
       </form>
     </div>
-
-    <% unless @error.nil? %>
-      <div class="error"><%= @error %></div>
-    <% end %>
+    <%  if @@invalid_steam_id %>
+      <div class="error">INVALID ID<div>
+    <%  end %>
   </div>
 </body>
 </html>
