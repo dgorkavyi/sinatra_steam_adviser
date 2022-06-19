@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <title>Advice to play game</title>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Enter your steam ID: </h1>
+    <div class="form_block">
+      <form action="/suggest_game" method="get">
+        <input type="text" name="steam_id" value="<%= params[:steam_id] %>" class="name_input">
+        <input type="submit" value="Click me!" class="submit_btn">
+      </form>
+    </div>
+    <%  if @@invalid_steam_id %>
+      <div class="error">INVALID ID<div>
+    <%  end %>
+  </div>
+</body>
+</html>
